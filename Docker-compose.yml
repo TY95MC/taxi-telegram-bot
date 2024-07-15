@@ -1,0 +1,24 @@
+version: '3.1'
+services:
+  taxi-telegram-bot-db:
+    image: postgres:14-alpine
+    container_name: taxi_telegram_bot_db_postgres_container
+    ports:
+      - "6541:5432"
+    environment:
+      - POSTGRES_DB=telegram-bot-db
+      - POSTGRES_USER=user
+      - POSTGRES_PASSWORD=password
+
+  taxi-telegram-bot-server:
+    build: .
+    container_name: taxi_telegram_bot_container
+    ports:
+      - "9090:9090"
+      - "9091:9091"
+    depends_on:
+      - taxi-telegram-bot-db
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://taxi-telegram-bot-db:5432/telegram-bot-db
+      - SPRING_DATASOURCE_USERNAME=user
+      - SPRING_DATASOURCE_PASSWORD=password
