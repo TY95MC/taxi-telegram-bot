@@ -30,7 +30,7 @@
 
 #### Стек технологий
 
-spring-boot, telegrambots, apache-poi, hibernate, lombok, docker-compose, postgresql, maven
+java 17, spring-boot, telegrambots, apache-poi, hibernate, lombok, docker-compose, postgresql, maven
 
 ***
 
