@@ -38,7 +38,7 @@ import ru.rozhdestveno.taxi.entity.lost.LostRepository;
 import ru.rozhdestveno.taxi.entity.order.Order;
 import ru.rozhdestveno.taxi.entity.order.OrderRepository;
 import ru.rozhdestveno.taxi.entity.order.OrderStatus;
-import ru.rozhdestveno.taxi.entity.util.Report;
+import ru.rozhdestveno.taxi.entity.util.ClientRequest;
 import ru.rozhdestveno.taxi.exception.EntityNotFoundException;
 
 import java.io.File;
@@ -1567,7 +1567,7 @@ public class TaxiTelegramBot extends TelegramLongPollingBot {
                 end = LocalDate.of(year, 12, 31);
             }
 
-            List<? extends Report> list;
+            List<? extends ClientRequest> list;
             String fileName;
 
             if (isLost) {
@@ -1599,8 +1599,8 @@ public class TaxiTelegramBot extends TelegramLongPollingBot {
             XSSFCell cell3;
 
             XSSFRow row;
-            Report report;
-            list.sort(Comparator.comparing(Report::getPublishedOn).reversed());
+            ClientRequest report;
+            list.sort(Comparator.comparing(ClientRequest::getPublishedOn).reversed());
 
             for (int i = 0; i <= list.size(); i++) {
                 row = sheet.createRow(i);

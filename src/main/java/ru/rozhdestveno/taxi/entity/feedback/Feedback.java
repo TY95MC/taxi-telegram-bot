@@ -14,7 +14,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import ru.rozhdestveno.taxi.entity.customer.Customer;
-import ru.rozhdestveno.taxi.entity.util.Report;
+import ru.rozhdestveno.taxi.entity.util.ClientRequest;
 
 import java.time.LocalDate;
 
@@ -24,7 +24,7 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @Getter
 @Setter
-public class Feedback extends Report {
+public class Feedback extends ClientRequest {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
