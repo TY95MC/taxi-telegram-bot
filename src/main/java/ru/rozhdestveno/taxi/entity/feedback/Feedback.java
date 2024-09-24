@@ -27,7 +27,7 @@ import java.time.LocalDate;
 public class Feedback extends ClientRequest {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
 
     @Column(name = "feedback_text")
     @Size(max = 1500)

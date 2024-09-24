@@ -27,7 +27,7 @@ import java.time.LocalDate;
 public class Lost extends ClientRequest {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
 
     @Column(name = "lost_text")
     @Size(max = 1500)

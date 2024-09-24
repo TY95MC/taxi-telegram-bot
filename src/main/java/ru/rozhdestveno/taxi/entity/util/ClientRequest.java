@@ -7,7 +7,7 @@ import java.time.LocalDate;
 
 @Data
 public abstract class ClientRequest {
-    private long id;
+    private Long id;
 
     private String text;
 
