@@ -6,8 +6,8 @@ import ru.rozhdestveno.taxi.entity.customer.Customer;
 import java.time.LocalDate;
 
 @Data
-public abstract class Report {
-    private long id;
+public abstract class ClientRequest {
+    private Long id;
 
     private String text;
 

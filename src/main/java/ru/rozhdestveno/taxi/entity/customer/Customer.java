@@ -21,7 +21,7 @@ import java.time.LocalDate;
 @Setter
 public class Customer {
     @Id
-    private long id;
+    private Long id;
 
     @Enumerated(EnumType.STRING)
     private CustomerBanStatus status = CustomerBanStatus.NO_WARN;

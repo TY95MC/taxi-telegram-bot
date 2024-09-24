@@ -21,7 +21,7 @@ import java.time.LocalDate;
 @Setter
 public class Employee {
     @Id
-    private long id;
+    private Long id;
 
     @Column(name = "first_name")
     private String firstName;

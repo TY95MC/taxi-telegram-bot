@@ -13,7 +13,7 @@ public interface EmployeeRepository extends JpaRepository<Employee, Long> {
     @Query("SELECT id " +
             "FROM Employee e " +
             "WHERE e.status = 'DRIVER' " +
-            "AND e.state = 'EMPLOYEE_ON_DUTY'")
+            "AND e.state NOT IN ('EMPLOYEE_ON_WEEKEND', 'DRIVER_ON_PAUSE')")
     List<Long> findWaitingDriversIds();
 
     @Query("SELECT e " +
