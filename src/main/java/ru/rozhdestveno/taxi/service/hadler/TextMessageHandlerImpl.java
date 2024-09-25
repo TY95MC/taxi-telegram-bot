@@ -84,7 +84,7 @@ public class TextMessageHandlerImpl implements TextMessageHandler {
         EmployeeHandler adminCarHandler = new AdminCarHandler(employeeRepository, carRepository);
         EmployeeHandler adminCashHandler = new AdminCashHandler(employeeRepository, orderRepository);
         EmployeeHandler adminContactHandler = new AdminContactHandler(contactRepository, employeeRepository);
-        EmployeeHandler employeeHandler = new AdminEmployeeHandler(employeeRepository, carRepository);
+        EmployeeHandler employeeHandler = new AdminEmployeeHandler(employeeRepository);
 
         //DISPATCHER
         EmployeeHandler dispatcherPriceHandler = new DispatcherSetPriceTextHandler(orderRepository, employeeRepository);

@@ -1,0 +1,12 @@
+databaseChangeLog:
+  - logicalFilePath: db/changelog/V.0.0.1/summary.yaml
+  - changeSet:
+      id: "1"
+      author: TY95MC
+      tagDatabase: V.0.0.1
+  - include:
+      file: create-tables.sql
+      relativeToChangelogFile: true
+  - include:
+      file: create-index.sql
+      relativeToChangelogFile: true

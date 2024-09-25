@@ -3,8 +3,6 @@ package ru.rozhdestveno.taxi.service.hadler.employee.admin.text;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 import org.telegram.telegrambots.meta.api.methods.PartialBotApiMethod;
-import ru.rozhdestveno.taxi.entity.car.Car;
-import ru.rozhdestveno.taxi.entity.car.CarRepository;
 import ru.rozhdestveno.taxi.entity.employee.Employee;
 import ru.rozhdestveno.taxi.entity.employee.EmployeeRepository;
 import ru.rozhdestveno.taxi.entity.employee.EmployeeState;
@@ -24,11 +22,9 @@ import static ru.rozhdestveno.taxi.constants.Constants.WRONG_FORMAT_TEXT;
 public class AdminEmployeeHandler extends EmployeeHandler {
 
     private final EmployeeRepository employeeRepository;
-    private final CarRepository carRepository;
 
-    public AdminEmployeeHandler(EmployeeRepository employeeRepository, CarRepository carRepository) {
+    public AdminEmployeeHandler(EmployeeRepository employeeRepository) {
         this.employeeRepository = employeeRepository;
-        this.carRepository = carRepository;
     }
 
     @Override
@@ -80,14 +76,6 @@ public class AdminEmployeeHandler extends EmployeeHandler {
             if (status.equals(EmployeeStatus.ADMIN)
                     && employeeRepository.findAllByStatus(EmployeeStatus.ADMIN).size() == 1) {
                 return List.of(BotUtil.createMessage(employee.getId(), "Нельзя удалить последнего администратора"));
-            }
-
-            //в случае, если удаляемый сотрудник водитель, необходимо открепить его от автомобиля
-            Car car = carRepository.findDriverCar(optional.get().getId());
-
-            if (car != null) {
-                car.setDriver(null);
-                carRepository.saveAndFlush(car);
             }
 
             employeeRepository.delete(optional.get());
