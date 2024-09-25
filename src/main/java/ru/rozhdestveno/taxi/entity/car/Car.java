@@ -6,6 +6,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.Size;
@@ -27,7 +28,11 @@ public class Car {
     private int id;
 
     @OneToOne
-    @JoinColumn(name = "driver_id")
+    @JoinTable(
+            name = "drivers_cars",
+            joinColumns = @JoinColumn(name = "car_id"),
+            inverseJoinColumns = @JoinColumn(name = "driver_id")
+    )
     private Employee driver;
 
     @Column(name = "license_plate", unique = true)

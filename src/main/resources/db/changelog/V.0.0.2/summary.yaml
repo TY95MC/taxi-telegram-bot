@@ -1,0 +1,9 @@
+databaseChangeLog:
+  - logicalFilePath: db/changelog/V.0.0.2/summary.yaml
+  - changeSet:
+      id: "1"
+      author: TY95MC
+      tagDatabase: V.0.0.2
+  - include:
+      file: alter-tables.sql
+      relativeToChangelogFile: true
